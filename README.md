@@ -1,4 +1,4 @@
-# FastAPI-ChatGPT3.5-linebot-Vercel
+# FastAPI-LangChain-linebot-Vercel
 - 一個使用FastAPI框架和Langchain，創造一個linebot，快速建置於平台Vercel。
 
 
