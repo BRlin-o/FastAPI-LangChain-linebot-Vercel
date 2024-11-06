@@ -2,10 +2,15 @@ from fastapi import FastAPI, Request, HTTPException
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
-from llm_openai import Chat_OpenAI
-from chat_model import ChatModel
+from langchain.chat_models import ChatOpenAI
 import os
 
+def Chat_OpenAI(model_id=os.getenv("OPENAI_MODEL", default="gpt-4o-mini")):
+    # 初始化 OpenAI 聊天模型，從環境變數中讀取 API 金鑰
+    return ChatOpenAI(model_name=model_id)
+
+
+from chat_model import ChatModel
 app = FastAPI()
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
