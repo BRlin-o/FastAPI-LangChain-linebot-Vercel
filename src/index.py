@@ -10,7 +10,7 @@ def Chat_OpenAI(model_id=os.getenv("OPENAI_MODEL", default="gpt-4o-mini")):
     return ChatOpenAI(model_name=model_id)
 
 
-from chat_model import ChatModel
+from .chat_model import ChatModel
 app = FastAPI()
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))

@@ -1,4 +1,4 @@
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 import os
 
 def Chat_OpenAI(model_id=os.getenv("OPENAI_MODEL", default="gpt-4o-mini")):
